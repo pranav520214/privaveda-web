@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
@@ -59,64 +59,64 @@ export const EvidenceGateSection: React.FC = () => {
       <div className="max-w-7xl mx-auto space-y-16">
         
         {/* Editorial Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-[#111513]/10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-[rgba(18,23,21,0.13)]">
           <div className="max-w-3xl space-y-4">
             <div className="flex items-center gap-3">
-              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#7A817D]">
+              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted">
                 SCENE 10 &middot; EVIDENCE GATE &amp; ABSTENTION
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1E6861]" />
-              <span className="font-mono text-[10px] tracking-widest text-[#1E6861] uppercase">
-                DETERMINISTIC PRE-FLIGHT VERIFICATION
+              <span className="w-1.5 h-1.5 rounded-full bg-teal" />
+              <span className="font-mono text-[10px] tracking-widest text-teal uppercase">
+                LABORATORY QUALITY-CONTROL BOUNDS
               </span>
             </div>
             
-            <h2 className="font-serif italic font-normal text-4xl sm:text-5xl lg:text-6xl text-[#111513] leading-[1.05] tracking-tight">
-              Sometimes the safest output is no output.
+            <h2 className="font-serif italic font-normal text-4xl sm:text-5xl lg:text-6xl text-ink leading-[1.05] tracking-tight">
+              Sometimes no output is the safer output.
             </h2>
             
-            <p className="font-sans text-base text-[#343B38] leading-relaxed max-w-2xl font-light">
-              Autonomous or black-box systems produce output regardless of data degradation.
-              PRIVAVEDA establishes deterministic physiological firewalls. If clinical specimens are stale,
-              laboratory assays uncalibrated, or organ function outside validated bounds, the software explicitly abstains.
+            <p className="font-sans text-base text-graphite leading-relaxed max-w-[540px] font-normal">
+              Autonomous or black-box systems produce output regardless of input degradation.
+              PRIVAVEDA establishes precision laboratory quality-control instrumentation. If clinical specimens are stale,
+              assays uncalibrated, or organ function outside validated domains, the software explicitly withholds simulation.
             </p>
           </div>
 
           {/* Scenario Selector Segmented Control */}
-          <div className="shrink-0 flex items-center p-1 bg-[#EEEAE1] border border-[#111513]/14 rounded-none">
+          <div className="shrink-0 flex items-center p-1 bg-[#E9E5DB] border border-[rgba(18,23,21,0.13)] rounded-[2px]">
             {(['valid', 'stale', 'severe'] as const).map((key) => (
               <button
                 key={key}
                 onClick={() => setScenario(key)}
                 className={`px-3.5 py-2 text-[11px] font-mono tracking-wider transition-colors uppercase ${
                   scenario === key
-                    ? 'bg-[#111513] text-[#F5F2EB]'
-                    : 'text-[#7A817D] hover:text-[#111513]'
+                    ? 'bg-ink text-canvas font-medium'
+                    : 'text-muted hover:text-ink'
                 }`}
               >
-                {key === 'valid' ? 'Case 01: Valid' : key === 'stale' ? 'Case 02: Stale (>48h)' : 'Case 03: ESRD (<15)'}
+                {key === 'valid' ? 'State: PASS' : key === 'stale' ? 'State: REVIEW' : 'State: WITHHELD'}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Inspection Grid: 3D Scanner + Ledger */}
+        {/* Inspection Grid: Precision QC Plane + Tabular Verification Ledger */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* 3D Optical Scanner Viewport */}
-          <div className="lg:col-span-5 bg-[#06100E] border border-[#111513]/20 relative min-h-[440px] flex flex-col justify-between p-6">
-            <div className="flex items-center justify-between text-xs font-mono text-[#AFCAC4]/80 z-10 border-b border-white/10 pb-3">
+          {/* Optical QC Verification Viewport */}
+          <div className="lg:col-span-5 bg-comp-bg border border-[rgba(18,23,21,0.2)] relative min-h-[440px] flex flex-col justify-between p-6">
+            <div className="flex items-center justify-between text-xs font-mono text-[#A6C4BC]/80 z-10 border-b border-white/10 pb-3">
               <div className="flex items-center gap-2">
                 <span className={`w-2 h-2 rounded-full ${
                   evalResult.overallStatus === 'REVIEWABLE_ZERO_BLOCKS'
-                    ? 'bg-[#1E6861]'
+                    ? 'bg-teal'
                     : evalResult.overallStatus === 'CAUTION_FLAGS_PRESENT'
                     ? 'bg-[#D97706]'
-                    : 'bg-[#991B1B]'
+                    : 'bg-muted'
                 }`} />
-                <span className="tracking-widest uppercase text-[10px]">EVIDENCE SCANNER OPTICS</span>
+                <span className="tracking-widest uppercase text-[10px]">VERIFICATION PLANE OPTICS</span>
               </div>
-              <span className="text-[10px] tracking-wider text-[#7A817D]">VERNIER CALIBRATION</span>
+              <span className="text-[10px] tracking-wider text-muted">QC CALIBRATION</span>
             </div>
 
             <div className="absolute inset-0 pointer-events-none">
@@ -125,39 +125,39 @@ export const EvidenceGateSection: React.FC = () => {
               </MainCanvas>
             </div>
 
-            <div className="z-10 bg-[#06100E]/90 border border-white/10 p-3 flex items-center justify-between font-mono text-[11px] text-[#AFCAC4]">
-              <span className="text-[#7A817D]">AUDIT PROVENANCE</span>
+            <div className="z-10 bg-comp-bg/90 border border-white/10 p-3 flex items-center justify-between font-mono text-[11px] text-[#A6C4BC]">
+              <span className="text-muted">PROVENANCE RECORD</span>
               <span className="text-white font-semibold">{evalResult.auditHash}</span>
             </div>
           </div>
 
           {/* Right Column: Precision Tabular Verification Ledger */}
-          <div className="lg:col-span-7 bg-[#EEEAE1] border border-[#111513]/12 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-7 bg-[#E9E5DB] border border-[rgba(18,23,21,0.13)] p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <div className="flex items-center justify-between pb-4 border-b border-[#111513]/10">
+              <div className="flex items-center justify-between pb-4 border-b border-[rgba(18,23,21,0.1)]">
                 <div className="space-y-1">
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#7A817D]">
-                    CHECKPOINT STATUS
+                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted">
+                    QUALITY CONTROL STATUS
                   </span>
-                  <div className="font-serif italic text-xl text-[#111513]">
+                  <div className="font-serif italic text-xl text-ink">
                     {evalResult.overallStatus === 'REVIEWABLE_ZERO_BLOCKS'
-                      ? 'Reviewable · Zero Blocks'
+                      ? 'PASS · Simulation Authorized'
                       : evalResult.overallStatus === 'CAUTION_FLAGS_PRESENT'
-                      ? 'Caution Flags Present'
-                      : 'Simulation Deterministically Abstained'}
+                      ? 'REVIEW · Cautionary Covariates'
+                      : 'SIMULATION WITHHELD · Insufficient Evidence'}
                   </div>
                 </div>
 
                 <div className="text-right font-mono">
-                  <span className="text-[10px] text-[#7A817D] uppercase block">QUALITY SCORE</span>
+                  <span className="text-[10px] text-muted uppercase block">QUALITY SCORE</span>
                   <span className={`text-xl font-bold tabular-nums ${
                     evalResult.qualityScore >= 80
-                      ? 'text-[#1E6861]'
+                      ? 'text-teal'
                       : evalResult.qualityScore >= 50
                       ? 'text-[#D97706]'
-                      : 'text-[#991B1B]'
+                      : 'text-muted'
                   }`}>
-                    {evalResult.qualityScore} <span className="text-xs text-[#7A817D] font-normal">/ 100</span>
+                    {evalResult.qualityScore} <span className="text-xs text-muted font-normal">/ 100</span>
                   </span>
                 </div>
               </div>

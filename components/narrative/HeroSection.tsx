@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import dynamic from 'next/dynamic';
@@ -35,21 +35,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center my-auto">
         {/* Left Column: Massive Editorial Typography */}
         <div className="lg:col-span-6 space-y-8 z-10">
-          <div className="space-y-4">
-            <h1 className="font-serif text-6xl sm:text-7xl lg:text-[88px] xl:text-[104px] font-normal tracking-[-0.03em] leading-[0.92] text-ink">
+          <div className="space-y-3">
+            <h1 className="font-serif text-6xl sm:text-7xl lg:text-[88px] xl:text-[100px] font-normal tracking-[-0.03em] leading-[0.92] text-ink">
               Patient-specific<br />
               <span className="italic font-light text-graphite">simulation.</span>
             </h1>
 
-            <p className="font-serif text-2xl sm:text-3xl text-graphite italic font-light tracking-tight pt-2">
+            <p className="font-serif text-2xl sm:text-3xl text-graphite italic font-light tracking-tight pt-1">
               Clearer clinical review.
             </p>
           </div>
 
-          <p className="font-sans text-sm sm:text-base text-graphite max-w-md leading-relaxed font-normal">
-            Every patient metabolizes medication through distinct organ kinetics. 
-            PRIVAVEDA connects mechanistic differential equations with Bayesian updating 
-            and explicit uncertainty intervals.
+          <p className="font-sans text-sm sm:text-base text-graphite max-w-[520px] leading-relaxed font-normal">
+            A clinician-led environment for exploring patient-specific exposure and uncertainty.
+            Connecting mechanistic differential equations with Bayesian updating and explicit credible intervals.
           </p>
 
           {/* Industrial Schematic Rule Line */}
@@ -58,26 +57,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="w-12 h-[1px] bg-ink/20 inline-block" />
               <span>PRINCIPLE &middot; AUDITABLE CLINICIAN DECISION</span>
             </div>
-            <p className="font-mono text-xs text-ink font-semibold mt-1">
+            <p className="font-mono text-xs text-ink font-semibold mt-1.5">
               &ldquo;The model simulates. The clinician decides.&rdquo;
             </p>
           </div>
 
-          {/* Quiet, Confident CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-4">
+          {/* Quiet, Confident CTAs (Section 37: EXPLORE SIMULATION -> with subtle translate) */}
+          <div className="flex flex-wrap items-center gap-4 pt-3">
             <button
               onClick={onExplore}
-              className="flex items-center gap-2 px-6 py-3 rounded bg-ink text-canvas hover:bg-teal font-sans text-xs tracking-wider uppercase font-medium transition-all"
+              className="group flex items-center gap-2.5 px-6 py-3 rounded-[2px] bg-ink text-canvas hover:bg-teal font-sans text-xs tracking-wider uppercase font-medium transition-all"
             >
-              <span>Explore The Simulation</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>Explore Simulation</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
             </button>
 
             <button
               onClick={onSeeHowItWorks}
-              className="px-5 py-3 rounded border border-ink/20 text-ink hover:border-ink text-xs font-sans tracking-wider uppercase transition-all bg-paper/40"
+              className="group flex items-center gap-2 px-5 py-3 rounded-[2px] border border-[rgba(18,23,21,0.18)] text-ink hover:border-ink text-xs font-sans tracking-wider uppercase transition-all bg-[#E9E5DB]/50"
             >
-              See How It Works
+              <span>Clinical Context</span>
+              <ArrowRight className="w-3 h-3 opacity-60 transition-transform duration-200 group-hover:translate-x-1" />
             </button>
           </div>
         </div>
@@ -95,18 +95,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 OPTICAL FLUID CHAMBER &middot; V₁
               </div>
               <div className="text-xs font-mono text-ink">
-                Central Plasma Distribution
+                Vascular Plasma Distribution
               </div>
               <div className="w-24 h-[1px] bg-ink/20 ml-auto mt-1" />
             </div>
 
             <div className="absolute bottom-8 left-4 text-left hidden sm:block">
               <div className="w-24 h-[1px] bg-ink/20 mb-1" />
-              <div className="text-[10px] font-mono tracking-widest text-muted uppercase">
-                LIGAND COVARIATE MAPPING
+              <div className="text-[10px] font-mono tracking-widest text-teal uppercase font-semibold">
+                FOCUSED MEASUREMENT EVENT
               </div>
-              <div className="text-xs font-mono text-ink">
-                Allometric Scaling CL &prop; W^0.75
+              <div className="text-xs font-mono text-ink tabular-nums">
+                2.41 mg/L &middot; Trough Level
               </div>
             </div>
           </div>

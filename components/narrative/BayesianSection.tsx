@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
@@ -105,32 +105,52 @@ export const BayesianSection: React.FC = () => {
               </h4>
             </div>
 
-            <div className="p-4 bg-comp-panel border border-comp-border space-y-2 font-mono text-xs text-[#AFCAC4]">
+            <div className="p-4 bg-comp-panel border border-comp-border space-y-2 font-mono text-xs text-[#A6C4BC]">
               <div>1 / &sigma;_post&sup2; = (1 / &sigma;_prior&sup2;) + (1 / &sigma;_obs&sup2;)</div>
               <div className="text-white text-[11px]">
-                &mu;_post = &sigma;_post&sup2; &middot; [ (&mu;_prior / &sigma;_prior&sup2;) + (y_obs / &sigma;_obs&sup2;) ]
+                &mu;_post = &sigma;_post&sup2; &middot; [ (&mu;_prior / &sigma;_prior&sup2;) + (y / &sigma;_obs&sup2;) ]
               </div>
             </div>
 
-            {/* Industrial Schematic Prior vs Posterior */}
-            <div className="space-y-3 font-mono text-xs text-muted border-t border-white/10 pt-4">
-              <div className="space-y-1">
-                <div className="flex justify-between text-white">
-                  <span>PRIOR P(&theta;)</span>
-                  <span className="tabular-nums">&mu; = 1.45 L/h &middot; &sigma; = 0.35</span>
-                </div>
-                <div className="text-[10px] text-muted">90% CI: [0.87 &ndash; 2.03]</div>
+            {/* Synchronized Trajectory Contraction Indicator */}
+            <div className="p-4 bg-[#0B1715] border border-comp-border space-y-2 font-mono text-xs">
+              <div className="flex items-center justify-between text-[10px] text-teal-soft uppercase tracking-wider">
+                <span>CREDIBLE ENVELOPE CONTRACTION</span>
+                <span className="tabular-nums font-bold text-white">
+                  {hasObservation ? '- 64% VARIANCE' : 'PRIOR POPULATION'}
+                </span>
               </div>
+              <div className="w-full bg-[#06100E] h-3 border border-comp-border relative overflow-hidden">
+                <div
+                  className="h-full bg-teal transition-all duration-500"
+                  style={{ width: hasObservation ? '36%' : '100%' }}
+                />
+              </div>
+              <div className="flex justify-between text-[10px] text-muted">
+                <span>90% CI: {hasObservation ? '[1.95 – 2.48 mg/L]' : '[1.10 – 2.80 mg/L]'}</span>
+                <span>{hasObservation ? 'Conditioned on TDM' : 'Population Prior'}</span>
+              </div>
+            </div>
 
-              {hasObservation && (
-                <div className="space-y-1 pt-2 border-t border-white/10">
-                  <div className="flex justify-between text-teal-soft font-bold">
-                    <span>POSTERIOR P(&theta;|y)</span>
-                    <span className="tabular-nums">&mu; = 1.62 L/h &middot; &sigma; = 0.11</span>
-                  </div>
-                  <div className="text-[10px] text-teal-soft/80">90% CI: [1.44 &ndash; 1.80] &middot; (-68% Variance)</div>
-                </div>
-              )}
+            <div className="space-y-2.5 text-xs font-mono text-muted">
+              <div className="flex justify-between border-b border-white/10 pb-1.5">
+                <span>Prior Clearance Estimate &mu;_prior</span>
+                <span className="text-white font-semibold tabular-nums">{bayesianResult.prior.mean.toFixed(2)} L/h</span>
+              </div>
+              <div className="flex justify-between border-b border-white/10 pb-1.5">
+                <span>Observed TDM Concentration y</span>
+                <span className="text-teal-soft font-semibold tabular-nums">2.41 mg/L</span>
+              </div>
+              <div className="flex justify-between border-b border-white/10 pb-1.5">
+                <span>Posterior Clearance Estimate &mu;_post</span>
+                <span className="text-white font-semibold tabular-nums">{bayesianResult.posterior.mean.toFixed(2)} L/h</span>
+              </div>
+              <div className="flex justify-between border-b border-white/10 pb-1.5">
+                <span>Variance Reduction Ratio</span>
+                <span className="text-teal-soft font-semibold tabular-nums">
+                  {bayesianResult.varianceReductionPercent.toFixed(1)}% Contraction
+                </span>
+              </div>
             </div>
           </div>
         </div>

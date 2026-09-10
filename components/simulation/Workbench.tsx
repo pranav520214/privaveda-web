@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useMemo } from 'react';
 import {
@@ -162,27 +162,27 @@ export const Workbench: React.FC = () => {
   }, [simResultScenarioB, scaleX, scaleY]);
 
   return (
-    <section id="workbench" className="relative w-full py-32 px-6 lg:px-12 bg-[#F5F2EB] text-[#111513] border-t border-[#111513]/10">
+    <section id="workbench" className="relative w-full py-32 px-6 lg:px-12 bg-canvas text-ink border-t border-[rgba(18,23,21,0.13)]">
       <div className="max-w-7xl mx-auto space-y-12">
         
         {/* Editorial Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-[#111513]/10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-[rgba(18,23,21,0.13)]">
           <div className="max-w-3xl space-y-4">
             <div className="flex items-center gap-3">
-              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#7A817D]">
+              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted">
                 SCENE 11 &middot; INTERACTIVE DEMONSTRATION
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1E6861]" />
-              <span className="font-mono text-[10px] tracking-widest text-[#1E6861] uppercase">
-                MECHANISTIC SIMULATION WORKBENCH
+              <span className="w-1.5 h-1.5 rounded-full bg-teal" />
+              <span className="font-mono text-[10px] tracking-widest text-teal uppercase font-semibold">
+                SYNTHETIC DEMONSTRATION &middot; CLINICIAN WORKBENCH
               </span>
             </div>
             
-            <h2 className="font-serif italic font-normal text-4xl sm:text-5xl lg:text-6xl text-[#111513] leading-[1.05] tracking-tight">
+            <h2 className="font-serif italic font-normal text-4xl sm:text-5xl lg:text-6xl text-ink leading-[1.05] tracking-tight">
               Clinical simulation workbench.
             </h2>
             
-            <p className="font-sans text-base text-[#343B38] leading-relaxed max-w-2xl font-light">
+            <p className="font-sans text-base text-graphite leading-relaxed max-w-[540px] font-normal">
               Direct implementation of the working clinical console architecture.
               Couples ODE solvers with Monte Carlo parameter variance and empirical TDM Bayesian conditioning.
             </p>
@@ -191,42 +191,42 @@ export const Workbench: React.FC = () => {
           <div className="shrink-0 flex items-center gap-3">
             <button
               onClick={() => setIsAddModalOpen(true)}
-              className="flex items-center gap-2 px-4 py-2.5 bg-[#1E6861] text-white hover:bg-[#0B332F] text-xs font-mono tracking-wider uppercase transition-colors"
+              className="flex items-center gap-2 px-4 py-2.5 bg-teal text-white hover:bg-teal-dark text-xs font-mono tracking-wider uppercase transition-colors rounded-[2px]"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>Record Observed TDM</span>
             </button>
             <button
               onClick={() => alert('Synthetic Export: Simulation report compiled with audit hash: ' + gateResult.auditHash)}
-              className="flex items-center gap-2 px-4 py-2.5 border border-[#111513]/14 bg-[#EEEAE1] hover:bg-[#E5E0D5] text-[#111513] text-xs font-mono tracking-wider uppercase transition-colors"
+              className="flex items-center gap-2 px-4 py-2.5 border border-[rgba(18,23,21,0.16)] bg-[#E9E5DB] hover:bg-[#DDD8CD] text-ink text-xs font-mono tracking-wider uppercase transition-colors rounded-[2px]"
             >
-              <Download className="w-3.5 h-3.5 text-[#7A817D]" />
+              <Download className="w-3.5 h-3.5 text-muted" />
               <span>Export Audit</span>
             </button>
           </div>
         </div>
 
-        {/* Console Container (Faithful to prototype image1.jpeg with high-end editorial craft) */}
-        <div className="bg-[#EEEAE1] border border-[#111513]/14 overflow-hidden">
+        {/* Console Container (Faithful to prototype with high-end editorial craft) */}
+        <div className="bg-[#E9E5DB] border border-[rgba(18,23,21,0.13)] overflow-hidden rounded-[2px]">
           
           {/* Top Industrial Telemetry Bar */}
-          <div className="px-6 py-3 bg-[#111513] text-[#F5F2EB] flex flex-wrap items-center justify-between gap-4 text-xs font-mono border-b border-white/10">
+          <div className="px-6 py-3 bg-[#121715] text-[#F4F1E9] flex flex-wrap items-center justify-between gap-4 text-xs font-mono border-b border-white/10">
             <div className="flex items-center gap-4 flex-wrap">
-              <div className="flex items-center gap-1.5 px-2 py-0.5 bg-[#1E6861]/25 text-[#AFCAC4] border border-[#1E6861]/40 text-[10px] tracking-widest uppercase font-semibold">
-                <ShieldCheck className="w-3 h-3 text-[#AFCAC4]" />
-                <span>SAFE DEMO MODE &middot; SYNTHETIC</span>
+              <div className="flex items-center gap-1.5 px-2 py-0.5 bg-teal/25 text-[#A6C4BC] border border-teal/40 text-[10px] tracking-widest uppercase font-semibold">
+                <ShieldCheck className="w-3 h-3 text-[#A6C4BC]" />
+                <span>SYNTHETIC DEMONSTRATION &middot; NOT AUTONOMOUS PRESCRIBING</span>
               </div>
               <span className="text-white/20">|</span>
-              <span className="text-[#7A817D]">NETWORK: <strong className="text-white">AIR-GAPPED</strong></span>
-              <span className="text-[#7A817D]">IDENTITY: <strong className="text-white">PSEUDONYMIZED</strong></span>
-              <span className="text-[#7A817D]">PROVENANCE: <strong className="text-[#AFCAC4]">AUDITED</strong></span>
+              <span className="text-muted">NETWORK: <strong className="text-white">AIR-GAPPED</strong></span>
+              <span className="text-muted">IDENTITY: <strong className="text-white">PSEUDONYMIZED</strong></span>
+              <span className="text-muted">PROVENANCE: <strong className="text-[#A6C4BC]">AUDITED</strong></span>
             </div>
 
             <div className="flex items-center gap-4">
-              <span className="text-[11px] text-[#7A817D]">
-                SOLVER: <strong className="text-[#AFCAC4]">SciPy solve_ivp</strong>
+              <span className="text-[11px] text-muted">
+                SOLVER: <strong className="text-[#A6C4BC]">SciPy solve_ivp</strong>
               </span>
-              <span className="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 text-[10px] tracking-wider uppercase font-bold">
+              <span className="px-2 py-0.5 bg-teal/30 text-teal-soft text-[10px] tracking-wider uppercase font-bold">
                 ONLINE
               </span>
             </div>

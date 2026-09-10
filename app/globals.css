@@ -1,25 +1,27 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --canvas: #F5F2EB;
-  --paper: #EEEAE1;
-  --ink: #111513;
-  --graphite: #343B38;
-  --muted: #7A817D;
-  --teal: #1E6861;
-  --teal-dark: #0B332F;
+  --canvas: #F4F1E9;
+  --paper: #E9E5DB;
+  --ink: #121715;
+  --graphite: #38413D;
+  --muted: #747C78;
+  --teal: #236E67;
+  --teal-dark: #103B36;
+  --teal-soft: #A6C4BC;
   --comp-bg: #06100E;
-  --hairline: rgba(17, 21, 19, 0.14);
+  --hairline: rgba(18, 23, 21, 0.13);
+  --hairline-dark: rgba(255, 255, 255, 0.10);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #F5F2EB;
-  color: #111513;
+  background-color: #F4F1E9;
+  color: #121715;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum";
 }
 
@@ -30,8 +32,8 @@ body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F5F2EB;
-  color: #111513;
+  background-color: #F4F1E9;
+  color: #121715;
 }
 
 /* Tabular figures for telemetry & numbers */

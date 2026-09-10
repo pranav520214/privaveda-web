@@ -1,4 +1,4 @@
-﻿/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,22 +9,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        canvas: '#F5F2EB',
-        paper: '#EEEAE1',
-        ink: '#111513',
-        graphite: '#343B38',
-        muted: '#7A817D',
+        canvas: '#F4F1E9',       // Primary Ivory
+        paper: '#E9E5DB',        // Warm Paper
+        ink: '#121715',          // Primary Ink
+        graphite: '#38413D',     // Graphite
+        muted: '#747C78',        // Muted
         teal: {
-          DEFAULT: '#1E6861',
-          dark: '#0B332F',
-          soft: '#AFCAC4',
+          DEFAULT: '#236E67',    // Privaveda Teal
+          dark: '#103B36',       // Deep Teal
+          soft: '#A6C4BC',       // Biological Green
         },
         comp: {
-          bg: '#06100E',
-          panel: '#0C1816',
-          border: 'rgba(175, 202, 196, 0.12)',
+          bg: '#06100E',         // Computational Black
+          panel: '#0B1715',
+          border: 'rgba(166, 196, 188, 0.12)',
         },
-        hairline: 'rgba(17, 21, 19, 0.14)',
+        hairline: 'rgba(18, 23, 21, 0.13)',
         'hairline-dark': 'rgba(255, 255, 255, 0.10)',
       },
       fontFamily: {
@@ -34,6 +34,7 @@ module.exports = {
       },
       borderRadius: {
         DEFAULT: '2px',
+        none: '0px',
         sm: '2px',
         md: '4px',
         lg: '6px',

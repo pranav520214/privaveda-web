@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 
@@ -35,8 +35,35 @@ export const DataToModelSection: React.FC = () => {
   ];
 
   return (
-    <section id="data-to-model" className="w-full py-28 px-6 sm:px-10 lg:px-16 bg-comp-bg text-[#EEEAE1] border-b border-comp-border">
-      <div className="max-w-[1440px] mx-auto space-y-20">
+    <section id="data-to-model" className="w-full bg-comp-bg text-[#EEEAE1] border-b border-comp-border">
+      {/* Signature Transition Block: Ivory -> #06100E */}
+      <div className="w-full bg-gradient-to-b from-canvas via-[#525E59]/20 to-comp-bg py-16 px-6 sm:px-10 lg:px-16 border-b border-comp-border">
+        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="space-y-2">
+            <span className="text-[10px] font-mono tracking-[0.25em] text-teal-soft uppercase block">
+              SIGNATURE TRANSITION &middot; FROM BODY TO MODEL
+            </span>
+            <div className="text-xs font-mono text-muted uppercase tracking-wider">
+              Biological motion slows &middot; Single concentration measurement isolates
+            </div>
+          </div>
+
+          {/* The isolated measurement node */}
+          <div className="p-4 bg-[#0B1715] border border-teal/40 flex items-baseline gap-4">
+            <span className="text-[10px] font-mono uppercase text-muted tracking-wider">
+              OBSERVED LEVEL:
+            </span>
+            <span className="font-serif text-3xl text-white tabular-nums">
+              2.41 <span className="text-sm font-sans text-[#A6C4BC]">mg/L</span>
+            </span>
+            <span className="text-[10px] font-mono text-teal-soft uppercase">
+              T = 12.0h
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1440px] mx-auto py-24 px-6 sm:px-10 lg:px-16 space-y-20">
         {/* Dark Computational Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-4">
@@ -45,7 +72,7 @@ export const DataToModelSection: React.FC = () => {
             </span>
             <div className="w-12 h-[1px] bg-white/20 mt-2 mb-4" />
             <p className="font-mono text-xs text-muted uppercase tracking-wide">
-              Data &rarr; Parameter Transformation
+              Covariates &rarr; Parameter State Space
             </p>
           </div>
 
@@ -53,9 +80,9 @@ export const DataToModelSection: React.FC = () => {
             <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-[1.05]">
               Entering the computational model space.
             </h2>
-            <p className="font-sans text-sm sm:text-base text-[#AFCAC4] max-w-2xl leading-relaxed font-normal">
-              Readable clinical numbers dissolve into vectors, probability distributions, 
-              and stiff ordinary differential equations. The system transitions from clinical observation 
+            <p className="font-sans text-sm sm:text-base text-[#A6C4BC] max-w-[540px] leading-relaxed font-normal">
+              Readable clinical numbers dissolve into state vectors, probability distributions, 
+              and stiff ordinary differential equations. The system transitions from anatomical observation 
               into predictive mathematics.
             </p>
           </div>
@@ -85,7 +112,7 @@ export const DataToModelSection: React.FC = () => {
               {/* Data Items */}
               <div className="space-y-2 pt-2 border-t border-white/10 font-mono text-xs">
                 {p.items.map((it, i) => (
-                  <div key={i} className="text-[#AFCAC4] text-[11px] flex items-center gap-2">
+                  <div key={i} className="text-[#A6C4BC] text-[11px] flex items-center gap-2">
                     <span className="w-1 h-1 rounded-full bg-teal-soft/60" />
                     <span>{it}</span>
                   </div>

@@ -1,4 +1,21 @@
-﻿# PRIVAVEDA — Patient-Specific Simulation for Clinical Review
+# Engineering Portfolio: Dual Systems Architecture
+
+This repository and workspace houses two tier-1 engineering platforms:
+
+1. **AVANTA / PRIVANTRIX** — Engineering Intelligence & Software Assurance
+   - **Proposition**: *“A clearer trust decision for every software change.”*
+   - **Private GitHub Repository**: [github.com/pranav520214/avanta](https://github.com/pranav520214/avanta)
+   - **Live Production Deployment**: [https://avanta-psi.vercel.app](https://avanta-psi.vercel.app)
+   - **Directory**: `./avanta` (Port `3001`)
+
+2. **PRIVAVEDA** — Patient-Specific Simulation for Clinical Review
+   - **Proposition**: *“The model simulates. The clinician decides.”*
+   - **GitHub Repository**: [github.com/pranav520214/privaveda-web](https://github.com/pranav520214/privaveda-web)
+   - **Directory**: `./privaveda` (Port `3000`)
+
+---
+
+# PRIVAVEDA — Patient-Specific Simulation for Clinical Review
 
 > **"The model simulates. The clinician decides."**  
 > *यथा देहः तथा चिकित्सा* — *As the body, so the medicine.*

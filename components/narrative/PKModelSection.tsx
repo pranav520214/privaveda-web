@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
@@ -46,16 +46,21 @@ export const PKModelSection: React.FC = () => {
         {/* Studio Viewport & Model Architecture Controls */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: 3D Precision Fluid Chambers */}
-          <div className="lg:col-span-8 h-[460px] sm:h-[520px] w-full border border-[rgba(17,21,19,0.14)] bg-[#F0ECE3] relative">
+          <div className="lg:col-span-8 h-[460px] sm:h-[520px] w-full border border-[rgba(18,23,21,0.13)] bg-[#E9E5DB]/40 relative">
             {/* Architectural Schematic Annotations */}
-            <div className="absolute top-4 left-4 z-10 text-[10px] font-mono tracking-widest text-muted uppercase">
-              &mdash;&mdash; FLUID DISTRIBUTION CHAMBERS
+            <div className="absolute top-4 left-4 z-10 space-y-0.5">
+              <div className="text-[10px] font-mono tracking-widest text-teal uppercase font-semibold">
+                &mdash;&mdash; ILLUSTRATIVE COMPARTMENT MODEL
+              </div>
+              <div className="text-[9px] font-mono text-muted uppercase">
+                V₁ (Central) &middot; V₂ (Peripheral) &middot; CL (Clearance) &middot; Q (Flux)
+              </div>
             </div>
 
             <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
               <button
                 onClick={() => setModelType('1-Compartment')}
-                className={`px-3 py-1 text-[11px] font-mono uppercase tracking-wider rounded transition-colors ${
+                className={`px-3 py-1 text-[11px] font-mono uppercase tracking-wider rounded-[2px] transition-colors ${
                   modelType === '1-Compartment'
                     ? 'bg-ink text-canvas font-semibold'
                     : 'text-graphite hover:text-ink'
@@ -65,7 +70,7 @@ export const PKModelSection: React.FC = () => {
               </button>
               <button
                 onClick={() => setModelType('2-Compartment')}
-                className={`px-3 py-1 text-[11px] font-mono uppercase tracking-wider rounded transition-colors ${
+                className={`px-3 py-1 text-[11px] font-mono uppercase tracking-wider rounded-[2px] transition-colors ${
                   modelType === '2-Compartment'
                     ? 'bg-ink text-canvas font-semibold'
                     : 'text-graphite hover:text-ink'
@@ -81,13 +86,13 @@ export const PKModelSection: React.FC = () => {
 
             {/* Industrial Fluid Labels */}
             <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-[11px] font-mono text-muted uppercase">
-              <span>Depot (Gut) &rarr; k_a</span>
-              <span>Central (V₁)</span>
-              <span>Clearance (CL) &rarr; Sink</span>
+              <span>Depot &rarr; k_a</span>
+              <span>Central V₁ &harr; Peripheral V₂ (Q)</span>
+              <span>Elimination (CL) &rarr; Sink</span>
             </div>
           </div>
 
-          {/* Right: Analytical Equations & Minimalist Telemetry */}
+          {/* Right: Analytical Equations & Integrated Telemetry */}
           <div className="lg:col-span-4 space-y-6">
             <div className="space-y-3">
               <span className="text-[10px] font-mono tracking-widest text-teal font-semibold uppercase">
@@ -98,31 +103,39 @@ export const PKModelSection: React.FC = () => {
               </h4>
               <p className="text-xs font-sans text-graphite leading-relaxed font-normal">
                 Rate of concentration change within central volume V₁ is governed by mucosal input, 
-                intercompartmental clearance, and irreversible elimination:
+                intercompartmental clearance, and irreversible elimination.
               </p>
             </div>
 
-            <div className="p-4 bg-paper/60 border border-[rgba(17,21,19,0.12)] space-y-2 font-mono text-xs">
-              <div className="text-ink font-semibold">
-                dC/dt = input &minus; distribution &minus; elimination
+            {/* Integrated Equation (No generic card box) */}
+            <div className="py-4 border-t border-b border-[rgba(18,23,21,0.13)] space-y-2 font-mono text-xs">
+              <div className="text-ink font-semibold text-sm">
+                dA₁/dt = input &minus; distribution &minus; elimination
               </div>
-              <div className="text-muted text-[11px] pt-1 border-t border-ink/10">
-                CL = CL_pop &middot; (Weight / 70)^0.75 &middot; (eGFR / 90)^0.85
+              <div className="text-graphite text-[11px] pt-1">
+                dA₁/dt = k_a &middot; A_depot &minus; (CL / V₁) &middot; A₁ &minus; (Q / V₁) &middot; A₁ + (Q / V₂) &middot; A₂
+              </div>
+              <div className="text-[10px] text-muted italic pt-1">
+                ILLUSTRATIVE MODEL &middot; Do not imply visualization is complete production engine
               </div>
             </div>
 
-            <div className="space-y-2 text-xs font-mono text-muted">
-              <div className="flex justify-between border-b border-[rgba(17,21,19,0.08)] pb-1.5">
+            <div className="space-y-2.5 text-xs font-mono text-muted">
+              <div className="flex justify-between border-b border-[rgba(18,23,21,0.08)] pb-1.5">
                 <span>Central Distribution Volume V₁</span>
-                <span className="text-ink font-semibold tabular-nums">43.7 L</span>
+                <span className="text-ink font-semibold tabular-nums">28.4 L</span>
               </div>
-              <div className="flex justify-between border-b border-[rgba(17,21,19,0.08)] pb-1.5">
-                <span>Absorption Velocity k_a</span>
-                <span className="text-ink font-semibold tabular-nums">1.10 h⁻¹</span>
+              <div className="flex justify-between border-b border-[rgba(18,23,21,0.08)] pb-1.5">
+                <span>Peripheral Volume V₂</span>
+                <span className="text-ink font-semibold tabular-nums">15.3 L</span>
               </div>
-              <div className="flex justify-between border-b border-[rgba(17,21,19,0.08)] pb-1.5">
-                <span>Elimination Constant k_e</span>
-                <span className="text-ink font-semibold tabular-nums">0.034 h⁻¹</span>
+              <div className="flex justify-between border-b border-[rgba(18,23,21,0.08)] pb-1.5">
+                <span>Systemic Clearance CL</span>
+                <span className="text-ink font-semibold tabular-nums">1.48 L/h</span>
+              </div>
+              <div className="flex justify-between border-b border-[rgba(18,23,21,0.08)] pb-1.5">
+                <span>Intercompartmental Clearance Q</span>
+                <span className="text-ink font-semibold tabular-nums">0.82 L/h</span>
               </div>
             </div>
           </div>

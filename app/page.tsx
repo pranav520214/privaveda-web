@@ -1,8 +1,9 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { InitialPreloader } from '@/components/layout/InitialPreloader';
 import { ChapterProgress } from '@/components/navigation/ChapterProgress';
 import { TechnicalDrawer } from '@/components/scientific/TechnicalDrawer';
 
@@ -40,6 +41,9 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen flex flex-col bg-[#FAF8F5]">
+      {/* Initial Scientific Preloader (Section 52) */}
+      <InitialPreloader />
+
       {/* Navigation Header */}
       <Header
         onOpenTechnicalDrawer={() => setIsTechnicalDrawerOpen(true)}
